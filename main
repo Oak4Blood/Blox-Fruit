@@ -26,12 +26,25 @@ local Section = Tab:NewSection("Delete Things")
 Section:NewButton("Unlock Awakeing Races Door", "U can't do anythings", function()
 local MainD = game:GetService("Workspace").Map["Temple of Time"].MainDoor1
 local MainD2 = game:GetService("Workspace").Map["Temple of Time"].MainDoor2
-local NoEnd = game:GetService("Workspace").Map["Temple of Time"].DoNotEnter
+
+wait(1)
 
     MainD:Destroy()
     MainD2:Destroy()
-    NoEnd:Destory()
 
+
+end)
+
+Section:NewButton("Unlock Clock Room", "U can't do anythings", function()
+
+local ild = game:GetService("Workspace").Map["Temple of Time"]
+
+for _,u in pairs(ild:GetDescendants()) do
+if u.Name == "DoNotEnter" then
+    u:Destroy()
+
+end
+end
 end)
 
 Section:NewToggle("Enter The Room", "The Room", function(state)
@@ -58,6 +71,29 @@ while ER == true do
 
  print('Repeat Stopped')
 wait()
+
+end
+end
+end)
+
+Section:NewButton("Stop Infinity Stairs", "U can't do anythings", function()
+local IS = game:GetService("Workspace").Characters
+    for _,v in pairs(IS:GetDescendants()) do
+if v.Name == "InfiniteStairs" then
+
+ v:Destroy()
+
+end
+end
+end)
+
+Section:NewButton("Delete Clock Room Door", "U can't do anythings", function()
+
+local ild = game:GetService("Workspace").Map["Temple of Time"]
+
+for _,u in pairs(ild:GetDescendants()) do
+if u.Name == "ClockRoomExit" then
+    u:Destroy()
 
 end
 end
@@ -386,4 +422,10 @@ for J, H in pairs(g) do
         end
     )
 end
+end)
+
+local Tab = Window:NewTab("Settings")
+local Section = Tab:NewSection("Setting")
+Section:NewKeybind(" ", " ", Enum.KeyCode.P, function()
+	Library:ToggleUI()
 end)
