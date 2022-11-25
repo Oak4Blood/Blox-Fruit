@@ -21,6 +21,80 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/L
 
 end)
 
+local Tab = Window:NewTab("Mirage Island")
+local Section = Tab:NewSection("Other Function")
+Section:NewButton("Esp Maybe Spawn at this location", "ESP", function()
+    
+    local Loc1 = Instance.new("Part")
+    local BillboardGui1 = Instance.new("BillboardGui")
+    local Frame1 = Instance.new("Frame")
+    local Text1 = Instance.new("TextLabel")
+    
+    Loc1.Name = "MirageLocation1"
+    Loc1.Anchored = true
+    Loc1.Shape = Enum.PartType.Ball
+    Loc1.Color = Color3.new(1, 1, 1)
+    Loc1.Parent = workspace
+    Loc1.Position = Vector3.new(6294.44, 100.93693, 14589.9)
+    Loc1.Transparency = 1
+    Loc1.CanCollide = false
+	BillboardGui1.Parent = game:GetService("Workspace").MirageLocation1
+	BillboardGui1.AlwaysOnTop = true
+	BillboardGui1.Size = UDim2.new(1, 1, 1, 1)
+    Frame1.Parent = game:GetService("Workspace").MirageLocation1.BillboardGui
+    Frame1.Size = UDim2.new(15, 15, 15, 15)
+    Frame1.BackgroundTransparency = 1
+    Text1.Parent = game:GetService("Workspace").MirageLocation1.BillboardGui.Frame
+    Text1.Size = UDim2.new(1, 1, 1, 1)
+    Text1.TextScaled = true
+    Text1.BackgroundTransparency = 1
+    Text1.Text = ("L1")
+    Text1.TextColor3 = Color3.new(0, 255, 0)
+    
+    local Loc2 = Instance.new("Part")
+    local BillboardGui2 = Instance.new("BillboardGui")
+    local Frame2 = Instance.new("Frame")
+    local Text2 = Instance.new("TextLabel")
+    
+    Loc2.Name = "MirageLocation2"
+    Loc2.Anchored = true
+    Loc2.Shape = Enum.PartType.Ball
+    Loc2.Color = Color3.new(1, 1, 1)
+    Loc2.Parent = workspace
+    Loc2.Position = Vector3.new(-15586, 100, -15101)
+    Loc2.Transparency = 1
+    Loc2.CanCollide = false
+	BillboardGui2.Parent = game:GetService("Workspace").MirageLocation2
+	BillboardGui2.AlwaysOnTop = true
+	BillboardGui2.Size = UDim2.new(1, 1, 1, 1)
+    Frame2.Parent = game:GetService("Workspace").MirageLocation2.BillboardGui
+    Frame2.Size = UDim2.new(15, 15, 15, 15)
+    Frame2.BackgroundTransparency = 1
+    Text2.Parent = game:GetService("Workspace").MirageLocation2.BillboardGui.Frame
+    Text2.Size = UDim2.new(1, 1, 1, 1)
+    Text2.TextScaled = true
+    Text2.BackgroundTransparency = 1
+    Text2.Text = ("L2")
+    Text2.TextColor3 = Color3.new(0, 255, 0)
+    b1:Destroy()
+end)
+
+Section:NewButton("Delete Esp", "Delete Esp", function()
+ local Mi1 = game:GetService("Workspace").MirageLocation1
+ local Mi2 = game:GetService("Workspace").MirageLocation2
+ 
+    Mi1:Destroy()
+    Mi2:Destroy()
+end)
+
+Section:NewButton("Mirage Tween", "Tween to go Mirage Island if found", function()
+    function toTargetWait(a)local b=(a.p-
+    game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/250,Enum.EasingStyle.Linear),
+    {CFrame=a})tweenrach:Play()end;toTargetWait(workspace.Map.MysticIsland.PrimaryPart.CFrame*CFrame.new(0,250,0))
+    print("Mirage Island Found!")
+end)
+
+
 local Tab = Window:NewTab("Visual")
 local Section = Tab:NewSection("Delete Things")
 Section:NewButton("Unlock Awakeing Races Door", "U can't do anythings", function()
