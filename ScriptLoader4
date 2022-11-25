@@ -5,7 +5,7 @@ print("Ui By Kevo Ui Lib")
 loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Crimson Hub", colors)
+local Window = Library.CreateLib("Crimson Hub", theme)
 local Tab = Window:NewTab("Scripts Hub")
 local Section = Tab:NewSection("Scripts Hub")
 
