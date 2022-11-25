@@ -21,6 +21,12 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/L
 
 end)
 
+Section:NewButton("NEVAHub", "Run NEVA Hub", function()
+    
+loadstring(game:HttpGet('https://raw.githubusercontent.com/VEZ2/NEVAHUB/main/2'))()
+
+end)
+
 local Tab = Window:NewTab("Mirage Island")
 local Section = Tab:NewSection("Other Function")
 Section:NewButton("Esp Maybe Spawn at this location", "ESP", function()
