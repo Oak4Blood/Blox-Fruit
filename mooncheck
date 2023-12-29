@@ -1,6 +1,5 @@
-    wait()
-    
     local ctime = game.Lighting:GetAttributes()
+    local httpsrequests = httprequest, http_request, httprequest
 
         function SendMessage(url, message)
         local http = game:GetService("HttpService")
@@ -11,7 +10,7 @@
             ["content"] = message
         }
         local body = http:JSONEncode(data)
-        local response = http_request({
+        local response = httpsrequests({
             Url = url,
             Method = "POST",
             Headers = headers,
@@ -39,7 +38,7 @@
             }
         }
         local body = http:JSONEncode(data)
-        local response = http_request({
+        local response = httpsrequests({
             Url = url,
             Method = "POST",
             Headers = headers,
