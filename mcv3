@@ -1,0 +1,77 @@
+    wait()
+    
+    local ctime = game.Lighting:GetAttributes()
+    local http_request = http and http.request or http_request or request or httprequest
+
+        function SendMessage(url, message)
+        local http = game:GetService("HttpService")
+        local headers = {
+            ["Content-Type"] = "application/json"
+        }
+        local data = {
+            ["content"] = message
+        }
+        local body = http:JSONEncode(data)
+        local response = http_request({
+            Url = url,
+            Method = "POST",
+            Headers = headers,
+            Body = body
+        })
+        print("Sent")
+    end
+    
+    function SendMessageEMBED(url, embed)
+        local http = game:GetService("HttpService")
+        local headers = {
+            ["Content-Type"] = "application/json"
+        }
+        local data = {
+            ["embeds"] = {
+                {
+                    ["title"] = embed.title,
+                    ["description"] = embed.description,
+                    ["color"] = embed.color,
+                    ["fields"] = embed.fields,
+                    ["footer"] = {
+                        ["text"] = embed.footer.text
+                    }
+                }
+            }
+        }
+        local body = http:JSONEncode(data)
+        local response = http_request({
+            Url = url,
+            Method = "POST",
+            Headers = headers,
+            Body = body
+        })
+        print("Sent")
+    end
+    
+    
+    --Examples 
+    local plyname = game.Players.LocalPlayer.Character.Name
+    local TIME_ZONE = 7
+    local date = os.date("!*t")
+    local hour = (date.hour + TIME_ZONE) % 24
+    local ampm = hour < 12 and "AM" or "PM"
+    local timestamp = string.format("%02i:%02i %s", ((hour - 1) % 12) + 1, date.min, ampm)
+    local url = "https://discord.com/api/webhooks/1190339995093966908/bZiXXBhe0dXZ1AE2CYAqJGgDEsJ1N5LaYmHZe-NfJLDlaP6sdk7FwcZ6UsuHBec3ktrU"
+    SendMessage(url)
+    
+    local embed = {
+        ["title"] = plyname,
+        ["description"] = "",
+        ["color"] = 0x00ff0b,
+        ["fields"] = {
+            {
+                ["name"] = "Moon Phase",
+                ["value"] = ctime.MoonPhase
+            }
+        },
+        ["footer"] = {
+            ["text"] = timestamp
+        }
+    }
+    SendMessageEMBED(url, embed)
